@@ -4,6 +4,7 @@ import Quiz from "@/components/Quiz";
 import Tools from "@/components/Tools";
 import Tokenomics from "@/components/Tokenomics";
 import Author from "@/components/Author";
+import LiveChart from "@/components/LiveChart";
 
 const primary = [
   ["Platform যাচাই", "Launchpad বা exchange-এর নিয়ম, সময়সূচি ও ফি official source থেকে পড়ুন।"],
@@ -20,6 +21,7 @@ export default function Home() {
         <nav className="flex gap-5 text-mist">
           <a href="#course" className="hover:text-white">কোর্স</a>
           <a href="#tools" className="hover:text-white">টুল</a>
+          <a href="#live" className="hover:text-white">চার্ট</a>
           <a href="#quiz" className="hover:text-white">কুইজ</a>
         </nav>
       </header>
@@ -41,6 +43,7 @@ export default function Home() {
       <Course />
       <Tools />
       <Tokenomics />
+      <LiveChart />
 
       <section id="primary-market" className="mx-auto max-w-5xl px-5 py-16">
         <h2 className="font-display text-3xl font-bold">Primary Market: অংশ নেওয়ার আগে</h2>
