@@ -3,6 +3,7 @@ import Course from "@/components/Course";
 import Quiz from "@/components/Quiz";
 import Tools from "@/components/Tools";
 import Tokenomics from "@/components/Tokenomics";
+import Author from "@/components/Author";
 
 const primary = [
   ["Platform যাচাই", "Launchpad বা exchange-এর নিয়ম, সময়সূচি ও ফি official source থেকে পড়ুন।"],
@@ -51,6 +52,7 @@ export default function Home() {
       </section>
 
       <Quiz />
+      <Author />
 
       <footer className="border-t border-line px-5 py-10 text-center text-sm text-mist">
         © Crypto 101 বাংলা — শিক্ষামূলক উদ্দেশ্যে। বাজারের তথ্য ব্যবহার করলে উৎস ও সর্বশেষ হালনাগাদের তারিখ উল্লেখ করুন।
