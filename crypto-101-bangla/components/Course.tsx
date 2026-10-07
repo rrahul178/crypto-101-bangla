@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { Check } from "lucide-react";
 import { modules } from "@/data/modules";
 
@@ -19,7 +20,7 @@ export default function Course() {
   return (
     <section id="course" className="mx-auto max-w-5xl px-5 py-16">
       <h2 className="font-display text-3xl font-bold">কোর্স মডিউল</h2>
-      <p className="mt-2 text-mist">পড়া শেষ হলে মডিউলটি চিহ্নিত করুন। অগ্রগতি আপনার ব্রাউজারে সংরক্ষিত থাকে।</p>
+      <p className="mt-2 text-mist">মডিউলে ক্লিক করে পড়ুন, শেষ হলে গোল বাটনে চিহ্নিত করুন। অগ্রগতি আপনার ব্রাউজারে সংরক্ষিত থাকে।</p>
       <div className="mt-6 flex items-center gap-4" role="progressbar" aria-valuenow={pct} aria-valuemin={0} aria-valuemax={100}>
         <div className="h-2 flex-1 overflow-hidden rounded-full bg-line">
           <div className="h-full bg-lagoon transition-all" style={{ width: `${pct}%` }} />
@@ -30,19 +31,18 @@ export default function Course() {
         {modules.map((m, i) => {
           const on = done.includes(m.id);
           return (
-            <button key={m.id} onClick={() => toggle(m.id)} aria-pressed={on}
-              className={`card text-left transition-colors hover:border-saffron ${on ? "border-lagoon" : ""}`}>
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <p className="text-sm text-mist">মডিউল {i + 1}</p>
-                  <h3 className="font-display text-xl font-bold">{m.title}</h3>
-                  <p className="mt-1 text-mist">{m.desc}</p>
-                </div>
-                <span className={`mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-full border ${on ? "border-lagoon bg-lagoon text-ink" : "border-line"}`}>
-                  {on && <Check size={16} />}
-                </span>
-              </div>
-            </button>
+            <div key={m.id} className={`card flex items-start justify-between gap-3 ${on ? "border-lagoon" : ""}`}>
+              <Link href={`/course/${m.id}`} className="group block flex-1">
+                <p className="text-sm text-mist">মডিউল {i + 1}</p>
+                <h3 className="font-display text-xl font-bold group-hover:text-saffron">{m.title}</h3>
+                <p className="mt-1 text-mist">{m.desc}</p>
+                <p className="mt-3 font-semibold text-saffron">পড়ুন →</p>
+              </Link>
+              <button onClick={() => toggle(m.id)} aria-pressed={on} aria-label={`${m.title} সম্পন্ন চিহ্নিত করুন`}
+                className={`mt-1 grid h-8 w-8 shrink-0 place-items-center rounded-full border ${on ? "border-lagoon bg-lagoon text-ink" : "border-line hover:border-saffron"}`}>
+                {on && <Check size={16} />}
+              </button>
+            </div>
           );
         })}
       </div>
