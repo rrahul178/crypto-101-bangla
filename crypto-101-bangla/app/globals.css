@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html { scroll-behavior: smooth; }
+body { background: #0D1226; color: #EEF0FA; font-family: var(--font-body), sans-serif; line-height: 1.75; }
+:focus-visible { outline: 2px solid #F2B84B; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+.card { @apply rounded-2xl border border-line bg-panel p-5; }
+.btn { @apply inline-flex items-center justify-center rounded-lg px-5 py-3 font-semibold transition-colors; }
+.btn-primary { @apply btn bg-saffron text-ink hover:bg-yellow-300; }
+.btn-ghost { @apply btn border border-line text-white hover:bg-panel; }
